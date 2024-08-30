@@ -1,0 +1,37 @@
+﻿@page
+@{
+    Layout = "./Shared/_Layout";  
+}
+@model WorkViewModel
+
+<h2>Products</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+            <th>Is Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price.ToString("C")</td>
+                <td>@product.Stock</td>
+                <td>@product.Category</td>
+                <td>@product.CreatedDate.ToShortDateString()</td>
+                <td>@product.UpdatedDate.ToShortDateString()</td>
+                <td>@product.IsActive</td>
+            </tr>
+        }
+    </tbody>
+</table>
